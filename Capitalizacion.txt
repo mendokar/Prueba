@@ -1,0 +1,18 @@
+function Capitalizar(texto) {
+	// Separamos las palabras 
+    return texto.split(' ').map(palabra => {
+	// tomamos las primeras letras de cada palabra
+        let primeraLetra = palabra.charAt(0);
+	// Validamos en código ASCII y convertimos el valor a mayuscula restando 32 y concatenamos
+        let mayuscula = String.fromCharCode(primeraLetra.charCodeAt(0) >= 97 && primeraLetra.charCodeAt(0) <= 122 
+            ? primeraLetra.charCodeAt(0) - 32 
+            : primeraLetra.charCodeAt(0));
+        return mayuscula + palabra.slice(1);
+    }).join(' ');
+}
+
+// Ejemplo de uso
+const textoOriginal = "hola mundo desde dian";
+const textoCapitalizado = Capitalizar(textoOriginal);
+
+console.log(textoCapitalizado); // Salida: "Hola Mundo Desde Dian"
