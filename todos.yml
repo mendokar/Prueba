@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: JSONPlaceholder Todos API
+  version: "1.0"
+servers:
+  - url: https://jsonplaceholder.typicode.com
+paths:
+  /todos/{id}:
+    get:
+      summary: Get a Todo by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: integer
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  completed:
+                    type: boolean
